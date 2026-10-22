@@ -1,0 +1,32 @@
+{
+  "name": "gerbcraft",
+  "version": "0.2.1",
+  "description": "GerbCraft — precision Gerber viewing and editing",
+  "type": "module",
+  "main": "electron/main.cjs",
+  "author": "GerbCraft",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "activation": "electron electron/issuer.cjs",
+    "test": "node --test test/*.test.js",
+    "test:ui": "playwright test",
+    "build:win": "electron-builder --win nsis zip --x64 --config build/editor.json",
+    "build:activation": "electron-builder --win nsis zip --x64 --config build/issuer.json",
+    "build:geometry": "esbuild scripts/geometry-vendor.mjs --bundle --format=esm --platform=browser --outfile=src/vendor/polygons.js",
+    "test:sample:drills": "node scripts/test-drill-board.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "earcut": "3.2.4",
+    "electron": "45.0.0",
+    "electron-builder": "26.15.3",
+    "esbuild": "0.28.2",
+    "polygon-clipping": "0.15.7",
+    "prettier": "3.9.10"
+  },
+  "dependencies": {
+    "yauzl": "3.4.0"
+  }
+}

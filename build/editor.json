@@ -1,0 +1,32 @@
+{
+  "appId": "com.gerbcraft.editor",
+  "productName": "GerbCraft",
+  "directories": {
+    "output": "dist/editor"
+  },
+  "files": [
+    "src/**/*",
+    "electron/main.cjs",
+    "electron/preload.cjs",
+    "electron/licensing.cjs",
+    "package.json",
+    "build/license-config.json",
+    "build/icon.*",
+    "electron/import-files.cjs"
+  ],
+  "win": {
+    "target": [
+      "nsis",
+      "zip"
+    ],
+    "signAndEditExecutable": false,
+    "icon": "build/icon.ico"
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "perMachine": false,
+    "createDesktopShortcut": true
+  },
+  "artifactName": "GerbCraft-${version}-Windows-${arch}.${ext}"
+}

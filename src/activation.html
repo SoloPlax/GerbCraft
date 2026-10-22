@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self';script-src 'self';style-src 'self';connect-src 'none'"
+    />
+    <title>GerbCraft Activation</title>
+    <link rel="stylesheet" href="activation.css" />
+  </head>
+  <body>
+    <header>
+      <span class="mark">G↗</span>
+      <div>
+        <h1>GerbCraft Activation</h1>
+        <p>Licence issuance · Private administrator app</p>
+      </div>
+    </header>
+    <main>
+      <section>
+        <div class="heading">
+          <span>01</span>
+          <h2>Your signing identity</h2>
+          <b id="keyStatus">Checking…</b>
+        </div>
+        <p>
+          Licences are signed here and checked by GerbCraft on the customer's
+          computer. Keep this app and its private signing key under your
+          control.
+        </p>
+        <div class="buttons">
+          <button id="create">Create signing identity</button
+          ><button id="restore">Restore identity</button
+          ><button id="public">Export public key</button
+          ><button id="backup">Back up private key</button>
+        </div>
+        <p id="keyFolder" class="small"></p>
+      </section>
+      <section>
+        <div class="heading">
+          <span>02</span>
+          <h2>Issue a licence</h2>
+        </div>
+        <label
+          >Customer or organisation<input
+            id="customer"
+            placeholder="Customer name"
+            maxlength="200" /></label
+        ><label
+          >GerbCraft installation code<input
+            id="device"
+            placeholder="Paste the code from GerbCraft → Activation"
+            maxlength="200"
+        /></label>
+        <div class="row">
+          <label
+            >Licence duration<select id="duration">
+              <option value="perpetual">Perpetual</option>
+              <option value="dated">Until a date</option>
+            </select></label
+          ><label
+            >Expiry date (UTC)<input id="expires" type="date" disabled
+          /></label>
+        </div>
+        <p class="small">
+          This offline licence is bound to one installation. Transfers require
+          issuing a new licence. An already-issued offline licence cannot be
+          remotely revoked.
+        </p>
+        <button id="issue" class="primary">Create licence file ↗</button>
+      </section>
+      <div id="message" role="status">Ready.</div>
+    </main>
+    <footer>GerbCraft Activation 0.1 · Ed25519 signed licences</footer>
+    <script src="activation.js"></script>
+  </body>
+</html>

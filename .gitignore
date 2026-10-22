@@ -1,0 +1,11 @@
+node_modules/
+dist/
+test-results/
+playwright-report/
+*.pem
+*.gcl
+.DS_Store
+
+# Private customer boards and generated acceptance evidence stay local.
+Sample_Gerber_Files/
+test/evidence/

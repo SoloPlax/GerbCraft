@@ -1,0 +1,29 @@
+{
+  "appId": "com.gerbcraft.activation",
+  "productName": "GerbCraft Activation",
+  "directories": {
+    "output": "dist/activation"
+  },
+  "extraMetadata": {
+    "main": "electron/issuer.cjs"
+  },
+  "files": [
+    "src/activation*",
+    "electron/issuer.cjs",
+    "electron/issuer-preload.cjs",
+    "electron/licensing.cjs",
+    "package.json",
+    "build/icon.*"
+  ],
+  "win": {
+    "target": ["nsis", "zip"],
+    "signAndEditExecutable": false,
+    "icon": "build/icon.ico"
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "perMachine": false
+  },
+  "artifactName": "GerbCraft-Activation-${version}-Windows-${arch}.${ext}"
+}

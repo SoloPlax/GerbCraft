@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'"
+    />
+    <title>GerbCraft</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="brand">
+        <span class="brand-icon">G<span>↗</span></span>
+        <div>GerbCraft<small>GERBER WORKSPACE</small></div>
+      </div>
+      <div class="project-title">
+        <span id="projectName">Untitled board</span><span id="dirtyMark"></span
+        ><small id="projectSummary">A clear view of every layer.</small>
+      </div>
+      <div class="header-actions">
+        <button data-action="open">Open project</button
+        ><button data-action="save">Save project</button
+        ><button data-action="import" class="primary">
+          ＋ Import Gerber / ZIP
+        </button>
+      </div>
+    </header>
+    <nav class="toolbar">
+      <div class="tool-group">
+        <button id="selectTool" class="active" title="Select objects (V)">
+          ↖ <span>Select</span></button
+        ><button id="panTool" title="Pan (H)">✥ <span>Pan</span></button
+        ><button id="measureTool" title="Measure (M)">
+          ↔ <span>Measure</span>
+        </button>
+      </div>
+      <div class="tool-group">
+        <button data-action="undo" id="undoButton" title="Undo · Ctrl+Z">
+          ↶ Undo</button
+        ><button data-action="redo" id="redoButton" title="Redo · Ctrl+Y">
+          ↷ Redo
+        </button>
+      </div>
+      <div class="tool-group">
+        <button data-action="fit">⛶ Fit board</button
+        ><button id="zoomOut" title="Zoom out">−</button
+        ><span id="zoomLabel">100%</span
+        ><button id="zoomIn" title="Zoom in">＋</button>
+      </div>
+      <div class="toolbar-end">
+        <label class="compact"
+          >Grid <input type="checkbox" id="gridToggle" checked /></label
+        ><select id="unitSelect" aria-label="Display units">
+          <option value="mm">Millimetres</option>
+          <option value="mil">Mils</option>
+          <option value="in">Inches</option></select
+        ><button data-action="export" class="export-button">
+          Export Gerber ↗
+        </button>
+      </div>
+    </nav>
+    <main>
+      <aside class="layers-panel">
+        <div class="panel-heading">
+          <h2>Layers <span id="layerCount">0</span></h2>
+          <button id="addLayer" title="Import layers">＋</button>
+        </div>
+        <div class="panel-hint">
+          Visibility controls the visible-layer export.
+        </div>
+        <div id="layerList"></div>
+        <div id="layerEmpty" class="empty-panel">
+          Your layers will appear here.<br />Import a ZIP, Gerber or Excellon
+          drill files.
+        </div>
+        <div class="panel-bottom">
+          <button id="showAll">Show all</button
+          ><button id="hideAll">Hide all</button>
+        </div>
+      </aside>
+      <section class="workspace" id="workspace">
+        <canvas
+          id="board"
+          aria-label="Gerber board canvas"
+          tabindex="0"
+        ></canvas>
+        <div class="canvas-label">
+          <span class="live-dot"></span> BOARD VIEW
+          <span id="boardDimensions"></span>
+        </div>
+        <div id="welcome">
+          <div class="eyebrow">YOUR NEXT BOARD STARTS HERE</div>
+          <h1>Every layer.<br />Every detail.</h1>
+          <p>
+            Inspect, edit and export Gerber artwork<br />in one focused
+            workspace.
+          </p>
+          <div>
+            <button data-action="import" class="primary large">
+              Import Gerber / ZIP files</button
+            ><button id="demoButton" class="large">Explore a sample ↗</button>
+          </div>
+          <small>Local files. Precise geometry. A history you can undo.</small>
+        </div>
+        <div class="canvas-bottom">
+          <span id="cursorPosition">X 0.000 · Y 0.000 mm</span
+          ><span id="measureLabel"></span>
+        </div>
+      </section>
+      <aside class="inspector">
+        <div class="panel-heading">
+          <h2>Inspector</h2>
+          <span class="tag" id="selectionCount">0 selected</span>
+        </div>
+        <div class="inspector-content">
+          <div class="section-label">SELECTION</div>
+          <p id="selectionSummary" class="muted">
+            Click an object to inspect it.<br />Shift-click to add to your
+            selection.
+          </p>
+          <div class="selection-actions">
+            <button data-action="selectAll">Select all</button
+            ><button id="clearSelection">Clear</button>
+          </div>
+          <div class="section-label">MOVE & COPY</div>
+          <div class="field-row">
+            <label
+              >X offset
+              <input id="moveX" type="number" value="0" step="0.1" /></label
+            ><label
+              >Y offset <input id="moveY" type="number" value="0" step="0.1"
+            /></label>
+          </div>
+          <div class="field-row">
+            <button id="moveButton">Move</button
+            ><button id="copyButton">Copy</button>
+          </div>
+          <div class="section-label">ROTATE & MIRROR</div>
+          <label class="full"
+            >Rotate about<select id="pivot">
+              <option value="center">Selection centre</option>
+              <option value="origin">Board origin (0, 0)</option>
+            </select></label
+          >
+          <div class="field-row angle-row">
+            <label
+              >Angle °<input
+                id="angle"
+                type="number"
+                value="90"
+                step="1" /></label
+            ><button id="rotateButton">Rotate ↺</button>
+          </div>
+          <div class="field-row">
+            <button id="mirrorX">Flip left / right</button
+            ><button id="mirrorY">Flip up / down</button>
+          </div>
+          <p class="small muted">
+            Positive angles rotate counterclockwise. Circles and arcs stay
+            exact.
+          </p>
+          <button data-action="delete" class="danger full">
+            Delete selection
+          </button>
+          <div class="section-label">DRILLS & BOARD</div>
+          <div class="field-row">
+            <button id="addDrill">Add hole / slot</button
+            ><button id="editDrill">Edit drills</button>
+          </div>
+          <button id="exportDrill" class="full">Export drills…</button>
+          <div class="field-row">
+            <button id="boardSetup">Board setup</button
+            ><button id="preview3d">3D preview</button>
+          </div>
+          <p class="small muted">
+            Import .drl files with the Import button. Drill edits do not change
+            copper pads.
+          </p>
+          <div class="section-label">DOCUMENT</div>
+          <div class="stat">
+            <span>Visible objects</span><strong id="objectCount">0</strong>
+          </div>
+          <div class="stat">
+            <span>History</span><strong id="historyCount">0 steps</strong>
+          </div>
+          <button data-action="help" class="help-link">
+            Keyboard shortcuts & quick guide ↗
+          </button>
+        </div>
+        <button data-action="license" id="licenseBadge" class="license-badge">
+          Checking activation…
+        </button>
+      </aside>
+    </main>
+    <footer>
+      <span id="status">Ready to import your first layer.</span
+      ><span>GerbCraft <b>0.2</b> · Desktop preview</span>
+    </footer>
+    <div id="toast" role="status" hidden></div>
+    <dialog id="modal">
+      <div class="modal-head">
+        <h2 id="modalTitle"></h2>
+        <button id="closeModal" aria-label="Close dialog">✕</button>
+      </div>
+      <div id="modalBody"></div>
+      <div id="modalActions"></div>
+    </dialog>
+    <dialog id="previewDialog">
+      <div class="modal-head">
+        <h2>3D board preview</h2>
+        <button id="closePreview" aria-label="Close 3D preview">✕</button>
+      </div>
+      <div class="preview-controls">
+        <button data-view="top">Top</button
+        ><button data-view="bottom">Bottom</button
+        ><button data-view="isometric">Isometric / Fit</button
+        ><button id="savePreview">Save image…</button>
+      </div>
+      <canvas id="previewCanvas" aria-label="3D board canvas"></canvas>
+      <p id="previewSummary"></p>
+      <p class="small muted">
+        Drag to orbit · Scroll to zoom · Shift-drag to pan. Software 3D ·
+        Orthographic view · Surface colours are illustrative; copper and plating
+        thickness are not modelled.
+      </p>
+    </dialog>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

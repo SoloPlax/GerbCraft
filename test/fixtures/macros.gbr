@@ -1,0 +1,15 @@
+G04 GerbCraft research synthetic fixture: asymmetric compound macro*
+%FSLAX24Y24*%
+%MOMM*%
+%AMASYM*
+1,1,1.0,-0.8,0,0*
+1,1,0.6,0.8,0.5,0*
+21,1,2.0,0.3,0,0,0*
+%
+%ADD10ASYM*%
+%LPD*%
+G01*
+D10*
+X030000Y030000D03*
+X080000Y060000D03*
+M02*
