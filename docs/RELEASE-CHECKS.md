@@ -20,11 +20,15 @@ is in `test/evidence/public-release-0.2.1`; final packages are in `dist/release`
 `dist/editor`. The prior local binaries are preserved under
 `dist/editor/pre-gpl-0.2.1`.
 
-The Windows VM displayed a black screen during this check, so this rebuilt
-installer has not been live-retested there. The earlier Windows 11 ARM / x64
-emulation results below apply to the prior 0.2.1 build. Native Windows x64,
-independent CAM validation and code signing remain outstanding. The release notes
-state these limits; this is an early pre-release.
+The VM display recovered. After the public-download handoff, the user reported
+that the app works. Live observation in Windows 11 ARM confirmed the imported
+board displaying 11 layers and 12,818 objects, selection/zoom and the perpetual
+access badge. The downloaded/installed files were not independently hashed in
+the guest during this session. Save/reopen, export, Undo/Redo and 3D checks of
+this public rebuild remain pending; the VM was left available while the user
+worked. The fuller Windows 11 ARM / x64 emulation results below apply to the
+prior 0.2.1 build. Native Windows x64, independent CAM validation and code signing
+remain outstanding; this is an early pre-release.
 
 ## GPLv3 source release — 23 October 2026
 

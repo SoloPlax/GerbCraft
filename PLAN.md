@@ -195,6 +195,10 @@ Licence administration is no longer a release prerequisite for this build.
 - [x] Publish [v0.2.1](https://github.com/SoloPlax/GerbCraft/releases/tag/v0.2.1)
   as an early pre-release with all three packages and SHA-256 checksums.
 - [x] Verify uploaded file digests and add direct download links to README.
-- [ ] Repeat live Windows testing of this rebuilt installer; the research VM
-  display was black during this release check. Earlier 0.2.1 Windows results remain
-  separate. Native Windows x64, independent CAM validation and signing remain open.
+- [x] User reports the public download works in Windows 11 ARM; observe the app
+  displaying the imported board (11 layers, 12,818 objects), selection/zoom and
+  the perpetual-access badge. The VM display is working again.
+- [ ] Complete save/reopen, export, Undo/Redo and 3D smoke checks of the public
+  rebuild. Earlier 0.2.1 results remain separate; the current session was left
+  available while the user worked in the VM. Native Windows x64, independent CAM
+  validation and signing remain open.
