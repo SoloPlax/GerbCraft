@@ -1,91 +1,126 @@
-# GerbCraft 0.2.1 — Windows first
+# GerbCraft
 
-A local desktop Gerber editor with layered viewing, selection, move/copy/delete,
-rotation, mirroring, Undo/Redo, drill editing, bare-board 3D, project files and RS-274X export. This build includes perpetual access with no activation or expiry. The separate
-**GerbCraft Activation** administrator app is retained for optional future licensing.
+**View, edit and explore PCB manufacturing files — even when the original design files are missing.**
 
-## Install and start
+Created by [SoloPlax](https://github.com/SoloPlax), GerbCraft is a desktop Gerber editor with layered viewing, direct artwork editing, drill and slot editing, ZIP import, Undo/Redo and a bare-board 3D viewer.
 
-- Editor: [Windows installer](dist/editor/GerbCraft-0.2.1-Windows-x64.exe)
-- Administrator only: [Activation App installer](dist/activation/GerbCraft-Activation-0.1.0-Windows-x64.exe)
-- Portable ZIP editions are beside each installer. Extract the entire ZIP before launching.
+**Current version: 0.2.1 · Windows first · Perpetual access · No activation required**
 
-The release is Windows x64; the acceptance environment is Windows 11 ARM in
-VMware Fusion using Windows x64 emulation. The installers are unsigned. Windows uses software rendering for VM compatibility.
-The Windows research VM, REA and Ghidra remain outside this project for reuse.
+![GerbCraft editor showing layered PCB artwork](docs/images/gerbcraft-editor.png)
 
-1. Open GerbCraft and choose **Explore a sample**, or **Import Gerber / ZIP**.
-2. Select a ZIP board archive or individual Gerber/drill files. ZIP subfolders are included; supporting files are reported and skipped.
-3. Save your editable work as `.gcraft`; export fabrication artwork as `.gbr` and drills separately. Saving and all exports work immediately without a licence file.
+## Why GerbCraft exists
 
-See the [user guide](docs/USER-GUIDE.md), [activation guide](docs/ACTIVATION.md),
-[release checks](docs/RELEASE-CHECKS.md), and [project plan](PLAN.md).
+Electronic engineers, hobbyists, makers, students and start-ups often have access to a board's Gerber files but no longer have its original PCB design files. A small change to a pad, track or drill hole can then become difficult, expensive or dependent on specialist software.
 
-## Supported first-release scope
+SoloPlax created GerbCraft to make those changes more accessible and to build an approachable tool for working directly with manufacturing artwork. The aim goes beyond viewing: bring editing, drill tools, project organisation and 3D inspection together in one desktop application, and keep improving it with the community.
+
+GerbCraft edits manufacturing geometry. It does not reconstruct the original schematic, electrical connectivity or PCB design rules.
+
+## What you can do
+
+- **Open a whole board:** import Gerber and Excellon files individually or directly from a ZIP archive, including its subfolders.
+- **Inspect your layers:** change colours, visibility and locks; select objects and measure distances.
+- **Edit artwork:** move, copy, delete, rotate and mirror supported geometry, with Undo/Redo.
+- **Work with holes and slots:** add, edit, transform and remove through-holes and G85 slots, including diameter and plating.
+- **Preview the board in 3D:** inspect copper, solder mask, silkscreen, board cutouts and drills; orbit, pan, zoom and export a PNG.
+- **Save and export:** keep editable `.gcraft` projects and export Gerber artwork and separate plated/non-plated drill files.
+
+### Bare-board 3D preview
+
+![GerbCraft 3D preview with solder mask, copper pads and through-holes](docs/images/gerbcraft-3d.png)
+
+### Drill and slot editing
+
+![GerbCraft dialog for adding a plated drill slot](docs/images/gerbcraft-drills.png)
+
+These are actual application screenshots captured from a development run using synthetic demonstration artwork. The demonstration board is not a fabrication-ready design and contains no customer artwork.
+
+## Availability
+
+| Platform    | Status                                                                                            |
+| ----------- | ------------------------------------------------------------------------------------------------- |
+| Windows x64 | Version 0.2.1 installer and portable ZIP built; public release assets have not yet been uploaded. |
+| macOS       | A packaged release is next in development.                                                        |
+| Linux       | A packaged release is planned alongside macOS.                                                    |
+
+Check [GitHub Releases](https://github.com/SoloPlax/GerbCraft/releases) for published downloads. For now, build from source using the instructions below. Build outputs are kept outside Git: the Windows installer is `dist/editor/GerbCraft-0.2.1-Windows-x64.exe`, with the portable ZIP beside it. Extract the entire portable ZIP before launching.
+
+The Windows acceptance environment is Windows 11 ARM in VMware Fusion using Windows x64 emulation. Native Windows x64 validation remains outstanding. The installers are unsigned, and Windows uses software rendering for VM compatibility.
+
+### Perpetual access and licensing
+
+The current app has **perpetual access by default**, with no activation requirement or expiry. Saving and exporting work without a licence file.
+
+A signed licensing engine and separate **GerbCraft Activation** administrator app have been built, but licence enforcement is disabled in the current public configuration. The administrator app is not needed to use GerbCraft.
+
+The source is publicly available, but an open-source licence has not yet been selected; the package currently declares `UNLICENSED`. Perpetual app access and permission to reuse the source are separate matters. Third-party components retain their own licences and notices.
+
+## Getting started
+
+1. Open GerbCraft and choose **Explore a sample** or **Import Gerber / ZIP**.
+2. Select a board ZIP or individual Gerber/drill files. Supporting files in a ZIP are reported and skipped.
+3. Inspect layers, make your edits, and use Undo/Redo as needed.
+4. Save an editable `.gcraft` project. Export fabrication artwork as `.gbr` and drills separately.
+
+Read the [user guide](docs/USER-GUIDE.md), [licensing architecture guide](docs/ACTIVATION.md), [release checks](docs/RELEASE-CHECKS.md) and [project plan](PLAN.md).
+
+## Supported formats and current limits
 
 - Metric and inch RS-274X, leading/trailing zero omission, absolute/incremental coordinates.
 - Circle, rectangle, obround and regular polygon flashes; circular aperture holes.
 - Circular-aperture line and arc strokes, single/multi-quadrant arcs and full circles.
-- Regions with straight/curved contours, dark/clear polarity, step-and-repeat.
-- Aperture macros: circle, outline, polygon, vector line, centre/lower-left rectangles;
-  parameters, variables and arithmetic. Aperture mirror/rotate/scale commands.
-- Layer names, colours, visibility and locks. Click/Shift-click/box selection,
-  movement, copying, deletion, arbitrary rotation and mirroring, distance measurement.
+- Regions with straight/curved contours, dark/clear polarity and step-and-repeat.
+- Aperture macros: circle, outline, polygon, vector line and centre/lower-left rectangles; parameters, variables and arithmetic. Aperture mirror/rotate/scale commands.
+- Layer names, colours, visibility and locks; click/Shift-click/box selection.
 - 100-step Undo/Redo using structural patches with a 64 MB history budget.
-- Excellon absolute holes and G85 slots: add, edit diameter/plating/endpoints, transform, copy, delete and separate PTH/NPTH export.
-- Two-copper-layer FR4 board setup; software 3D with outline/cutouts/drills, top/bottom copper, mask and silk, orbit/pan/zoom and PNG export.
-- Visible, active-layer or selected-object RS-274X export in millimetres with six decimal places.
+- Excellon absolute holes and G85 slots, including separate PTH/NPTH export.
+- Two-copper-layer FR4 board setup and bare-board 3D preview.
+- Visible-layer, active-layer or selected-object RS-274X export in millimetres with six decimal places.
 
-Unsupported constructs produce an import error. This version does not support
-non-circular drawing apertures, aperture blocks, moiré/thermal macro primitives,
-Excellon routing/repeats/incremental coordinates, blind/buried holes, DXF, ODB++, panelisation or DFM. X2 attributes are read as metadata
-but omitted from exported artwork with a warning. These are explicit future scope;
-0.2 is a scoped editor preview, not comprehensive ViewMate feature parity.
+Unsupported constructs produce an import error. This version does not support non-circular drawing apertures, aperture blocks, moiré/thermal macro primitives, Excellon routing/repeats/incremental coordinates, blind/buried holes, DXF, ODB++, panelisation or DFM. X2 attributes are read as metadata but omitted from exported artwork with a warning. Password-protected and nested ZIP archives are not supported.
+
+Version 0.2.1 is an early editor release with a defined format scope. Review exported files in an independent CAM tool before fabrication; independent CAM validation remains part of the release checklist.
 
 ## Development
 
-Node.js/npm required. From this folder:
+Install Node.js and npm, then run:
 
 ```sh
 npm ci
+npm start
+```
+
+Validation and Windows packaging:
+
+```sh
 npm test
 npm run test:ui
-npm start
-npm run activation
 npm run build:win
+```
+
+Optional licensing administration tools:
+
+```sh
+npm run activation
 npm run build:activation
 ```
 
-`npm start` uses the checked-in public licence configuration. Tests use isolated
-profiles and an unpackaged-only development override. Packaged builds ignore that
-override. Earcut (ISC) and polygon-clipping (MIT), including their dependencies,
-are locally bundled in `src/vendor`; notices are in `src/vendor/LICENSES.txt`.
-Rebuild that bundle with `npm run build:geometry` after changing those dependencies.
+`npm start` uses the checked-in public licence configuration. Tests use isolated profiles and an unpackaged-only development override; packaged builds ignore that override. Private signing keys are kept outside the repository and never packaged.
 
-Architecture: pure JavaScript geometry/parser/document modules in `src/core`,
-Canvas renderer and desktop UI in `src`, narrow Electron bridges in `electron`.
-The renderer has no Node.js access; sandboxing and context isolation are enabled.
-Private signing keys are outside the repository and never packaged.
+The architecture uses pure JavaScript geometry, parser and document modules in `src/core`, a Canvas renderer and desktop UI in `src`, and narrow Electron bridges in `electron`. The renderer has no Node.js access; sandboxing and context isolation are enabled.
 
-Implementation is independent source code guided by synthetic fixtures and
-observed workflows. Research evidence is retained separately at
-`/Users/solomonsmit/develop/research/viewmate-essentials`.
+Earcut (ISC) and polygon-clipping (MIT), including their dependencies, are locally bundled in `src/vendor`; notices are in `src/vendor/LICENSES.txt`. Rebuild that bundle with `npm run build:geometry` after changing those dependencies. ZIP import uses yauzl and pend (MIT), with their licence notices included.
 
-## User sample compatibility update
+Regenerate the promotional screenshots with `node scripts/capture-readme.mjs` in a desktop session. The script creates synthetic artwork and uses a temporary application profile.
 
-Version 0.1.1 accepts zero-diameter standard circular apertures without drawing
-phantom strokes. The supplied nine-layer PCB imports, saves, reopens and exports
-with 12,437 objects. See [sample test results](Sample_Gerber_Files/GerbCraft-Test-Results/TEST-RESULTS.md).
-The original ZIP is preserved; import the extracted `.gbr` files or open the
-prepared `.gcraft` project, or import the original ZIP directly in 0.2.1.
+## Validation so far
 
-Version 0.2.0 adds both sample drill files: 379 plated + 2 non-plated holes. Open
-`Sample_Gerber_Files/GerbCraft-Test-Results/PCB-11-23001-drills-3D.gcraft` for the
-11-layer project with the supplied 1.55 mm board setup. The notes list 239 holes
-and 190 × 163 mm; the files contain 381 holes and a 190 × 163.2 mm profile.
-Those discrepancies are reported without changing the originals.
+Version 0.2.1 passed 43 core tests and 10 desktop tests. Windows VM acceptance covered direct ZIP import, saving and reopening an 11-layer board containing 12,818 objects, including 381 drill holes. ZIP import is atomic and undoable as one operation, with integrity and bounded-size checks.
 
-Version 0.2.1 adds direct ZIP import and perpetual access by default. ZIP import is
-atomic and undoable as one operation, with integrity and bounded-size checks.
-Password-protected archives and nested ZIP archives are not supported. The ZIP
-reader uses yauzl and pend (MIT), included with their licence notices.
+Private sample boards and acceptance evidence are excluded from this repository. Implementation is independent source code guided by synthetic fixtures and observed workflows. See the [release checklist](docs/RELEASE-CHECKS.md) for completed checks and remaining work.
+
+## Support GerbCraft
+
+You can support development by reporting reproducible bugs, suggesting improvements and sharing the project with other engineers and makers. Please include a small, shareable sample file when reporting a format issue, and remove any confidential board data.
+
+A donation link will be added once SoloPlax's preferred payment page is connected.
