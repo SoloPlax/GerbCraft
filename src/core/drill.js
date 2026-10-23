@@ -1,3 +1,6 @@
+// Copyright (C) 2026 SoloPlax
+// SPDX-License-Identifier: GPL-3.0-only
+
 // A deliberately strict Excellon subset. Ambiguous implied-decimal files are rejected.
 export function validateDrill(o) {
   const point = (p) =>

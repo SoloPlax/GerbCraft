@@ -1,3 +1,6 @@
+// Copyright (C) 2026 SoloPlax
+// SPDX-License-Identifier: GPL-3.0-only
+
 import fs from "node:fs/promises";
 import { parseGerber } from "../src/core/gerber.js";
 import { parseDrill, exportDrill } from "../src/core/drill.js";

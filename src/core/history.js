@@ -1,3 +1,6 @@
+// Copyright (C) 2026 SoloPlax
+// SPDX-License-Identifier: GPL-3.0-only
+
 // Reversible structural patches retain changed values, not complete boards.
 const equal = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 export function diff(a, b, path = [], out = []) {

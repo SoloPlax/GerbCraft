@@ -1,3 +1,6 @@
+// Copyright (C) 2026 SoloPlax
+// SPDX-License-Identifier: GPL-3.0-only
+
 import { drawObject } from "./render.js";
 const makeCanvas = (w, h) => {
   const c = document.createElement("canvas");

@@ -1,3 +1,6 @@
+// Copyright (C) 2026 SoloPlax
+// SPDX-License-Identifier: GPL-3.0-only
+
 import { crc32, deflateRawSync } from "node:zlib";
 // Small deterministic ZIP fixtures, independent of the production reader.
 export function zip(entries) {

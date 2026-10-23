@@ -1,3 +1,6 @@
+// Copyright (C) 2026 SoloPlax
+// SPDX-License-Identifier: GPL-3.0-only
+
 import { test, expect, _electron as electron } from "@playwright/test";
 import path from "node:path";
 import fs from "node:fs/promises";

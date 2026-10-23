@@ -4,7 +4,7 @@
 
 Created by [SoloPlax](https://github.com/SoloPlax), GerbCraft is a desktop Gerber editor with layered viewing, direct artwork editing, drill and slot editing, ZIP import, Undo/Redo and a bare-board 3D viewer.
 
-**Current version: 0.2.1 · Windows first · Perpetual access · No activation required**
+**Current version: 0.2.1 · Windows first · GPLv3 open source · No activation required**
 
 [![Buy a Coffee for SoloPlax](https://img.shields.io/badge/Buy%20a%20Coffee%20for%20SoloPlax-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/soloplax)
 
@@ -55,7 +55,13 @@ The current app has **perpetual access by default**, with no activation requirem
 
 A signed licensing engine and separate **GerbCraft Activation** administrator app have been built, but licence enforcement is disabled in the current public configuration. The administrator app is not needed to use GerbCraft.
 
-The source is publicly available, but an open-source licence has not yet been selected; the package currently declares `UNLICENSED`. Perpetual app access and permission to reuse the source are separate matters. Third-party components retain their own licences and notices.
+GerbCraft is **open-source software under the GNU General Public License, version 3 only** (`GPL-3.0-only`). Copyright (C) 2026 SoloPlax. See [LICENSE](LICENSE) for the full terms.
+
+You may use, study, modify and redistribute GerbCraft, including commercially. When distributing covered versions, you must preserve the required notices, license the covered work under GPLv3, and provide the complete corresponding source as required by that licence. Private modifications do not have to be published. GPLv3 does not add a source-sharing requirement solely because software is used over a network.
+
+GerbCraft is provided without warranty, to the extent permitted by law. Third-party components retain their own licences and notices. The GPL terms apply separately from the disabled activation system; donations are optional and do not affect your rights under the licence.
+
+For binary releases, publish the complete corresponding source and build instructions for that exact version alongside the downloads. The existing local 0.2.1 executables predate this licensing update and must be rebuilt before being offered as GPLv3 release assets.
 
 ## Getting started
 

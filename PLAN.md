@@ -173,3 +173,13 @@ signed-licence implementation and existing identity are retained.
 Public-release priorities remain independent CAM validation, native Windows x64
 hardware, broader production boards/performance, signing and customer delivery.
 Licence administration is no longer a release prerequisite for this build.
+
+## Open-source licensing — 23 October 2026
+
+- [x] Adopt strong copyleft through `GPL-3.0-only` for GerbCraft's original source.
+- [x] Add the full licence, copyright/SPDX notices and consistent package metadata.
+- [x] Explain redistribution, source availability and optional donations in README.
+- [x] Preserve dependency licences and complete the bundled attribution notices.
+- [x] Include the GPL text in future editor and activation-app packages.
+- [ ] Rebuild public binary release assets and supply their complete corresponding
+  source and build instructions from the exact release commit.

@@ -16,7 +16,10 @@
     "build/icon.*"
   ],
   "win": {
-    "target": ["nsis", "zip"],
+    "target": [
+      "nsis",
+      "zip"
+    ],
     "signAndEditExecutable": false,
     "icon": "build/icon.ico"
   },
@@ -25,5 +28,11 @@
     "allowToChangeInstallationDirectory": true,
     "perMachine": false
   },
-  "artifactName": "GerbCraft-Activation-${version}-Windows-${arch}.${ext}"
+  "artifactName": "GerbCraft-Activation-${version}-Windows-${arch}.${ext}",
+  "extraFiles": [
+    {
+      "from": "LICENSE",
+      "to": "LICENSE-GerbCraft.txt"
+    }
+  ]
 }

@@ -1,3 +1,6 @@
+// Copyright (C) 2026 SoloPlax
+// SPDX-License-Identifier: GPL-3.0-only
+
 const fs = require("node:fs/promises");
 const path = require("node:path");
 const { crc32 } = require("node:zlib");

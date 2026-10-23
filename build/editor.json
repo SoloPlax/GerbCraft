@@ -28,5 +28,11 @@
     "perMachine": false,
     "createDesktopShortcut": true
   },
-  "artifactName": "GerbCraft-${version}-Windows-${arch}.${ext}"
+  "artifactName": "GerbCraft-${version}-Windows-${arch}.${ext}",
+  "extraFiles": [
+    {
+      "from": "LICENSE",
+      "to": "LICENSE-GerbCraft.txt"
+    }
+  ]
 }

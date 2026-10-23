@@ -1,3 +1,6 @@
+// Copyright (C) 2026 SoloPlax
+// SPDX-License-Identifier: GPL-3.0-only
+
 export const demoFiles = [
   {
     name: "01 \u00b7 Copper geometry.gbr",

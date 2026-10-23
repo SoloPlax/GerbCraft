@@ -1,5 +1,11 @@
 # GerbCraft Activation
 
+The editor and activation-app source are licensed under `GPL-3.0-only`; see
+[LICENSE](../LICENSE). This document describes an optional activation mechanism,
+not a restriction on the rights granted by GPLv3. Recipients may modify the source,
+including that mechanism, and redistribute it subject to the GPL terms. A future
+activation setting cannot revoke the rights already granted for GPL releases.
+
 ## Current default: perpetual access (0.2.1)
 
 The editor now includes perpetual access: no licence file, activation or expiry is

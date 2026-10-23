@@ -1,3 +1,6 @@
+// Copyright (C) 2026 SoloPlax
+// SPDX-License-Identifier: GPL-3.0-only
+
 export const EPS = 1e-8;
 export const clone = (x) => structuredClone(x);
 export const point = (x, y) => ({ x, y });

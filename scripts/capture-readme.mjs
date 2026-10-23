@@ -1,3 +1,6 @@
+// Copyright (C) 2026 SoloPlax
+// SPDX-License-Identifier: GPL-3.0-only
+
 // Publishable screenshots from synthetic artwork, never from customer samples.
 import { _electron as electron } from "@playwright/test";
 import fs from "node:fs/promises";

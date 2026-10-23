@@ -1,3 +1,6 @@
+// Copyright (C) 2026 SoloPlax
+// SPDX-License-Identifier: GPL-3.0-only
+
 import { validateBoard } from "./board3d.js";
 import { diff, applyPatches } from "./history.js";
 import { validateDrill } from "./drill.js";

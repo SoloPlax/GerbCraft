@@ -1,3 +1,6 @@
+// Copyright (C) 2026 SoloPlax
+// SPDX-License-Identifier: GPL-3.0-only
+
 const { app, BrowserWindow, ipcMain, dialog, Menu } = require("electron");
 const fs = require("node:fs/promises"),
   path = require("node:path");

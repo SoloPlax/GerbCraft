@@ -1,3 +1,6 @@
+// Copyright (C) 2026 SoloPlax
+// SPDX-License-Identifier: GPL-3.0-only
+
 import { objectBounds, circularWidth, circleAperture } from "./geometry.js";
 export function segmentPath(path, s) {
   if (s.kind === "arc") {

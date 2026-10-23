@@ -1,3 +1,6 @@
+# Copyright (C) 2026 SoloPlax
+# SPDX-License-Identifier: GPL-3.0-only
+
 """Temporary, private-NAT-only transfer for the Windows acceptance test."""
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path

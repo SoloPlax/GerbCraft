@@ -1,3 +1,6 @@
+// Copyright (C) 2026 SoloPlax
+// SPDX-License-Identifier: GPL-3.0-only
+
 const crypto = require("node:crypto");
 function createKeys() {
   return crypto.generateKeyPairSync("ed25519", {

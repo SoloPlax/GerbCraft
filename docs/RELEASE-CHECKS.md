@@ -1,5 +1,28 @@
 # GerbCraft release checks
 
+## GPLv3 source release — 23 October 2026
+
+GerbCraft's original source now uses `GPL-3.0-only`. The repository includes the
+unmodified GNU GPLv3 text, copyright/SPDX notices, matching package metadata and
+README terms. Both editor and activation packaging configurations include the
+licence as `LICENSE-GerbCraft.txt` beside the executable.
+Existing third-party notices are preserved; the vendor notice file now also
+includes the splaytree MIT notice and Apache 2.0 terms for the Microsoft helper
+code already embedded in polygon-clipping.
+
+Validation: all 43 core tests pass, maintained JavaScript files pass syntax checks,
+and temporary Windows x64 directory builds of both apps contain the exact GPL
+text beside the executable and `GPL-3.0-only` package metadata. The editor's
+packaged vendor notices match the updated source. These checks do not rebuild the
+existing release installer/ZIP assets or replace Windows runtime acceptance.
+
+The local 0.2.1 installer/ZIP files predate this update. Before publishing binaries:
+
+- Rebuild from the intended GPL-licensed release commit and inspect its notices.
+- Provide the complete corresponding source for that exact build alongside the
+  download, including build scripts, required dependency sources and notices.
+- Record the source commit and refreshed binary hashes in the release notes.
+
 ## 0.2.1 ZIP import and perpetual access — 22 October 2026
 
 43 core/licensing/archive tests and 10 desktop tests pass. Tests cover the

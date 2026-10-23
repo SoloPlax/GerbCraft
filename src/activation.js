@@ -1,3 +1,6 @@
+// Copyright (C) 2026 SoloPlax
+// SPDX-License-Identifier: GPL-3.0-only
+
 const $ = (id) => document.getElementById(id);
 function message(text, error = false) {
   $("message").textContent = text;

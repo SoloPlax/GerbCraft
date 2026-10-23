@@ -1,3 +1,6 @@
+// Copyright (C) 2026 SoloPlax
+// SPDX-License-Identifier: GPL-3.0-only
+
 import { earcut, flatten, deviation, clipping } from "../vendor/polygons.js";
 import { pointsBounds } from "./geometry.js";
 export const ROLES = [
