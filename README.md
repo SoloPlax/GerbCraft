@@ -6,6 +6,8 @@ Created by [SoloPlax](https://github.com/SoloPlax), GerbCraft is a desktop Gerbe
 
 **Current version: 0.2.1 · Windows first · Perpetual access · No activation required**
 
+[![Donate on Ko-fi](docs/images/donate-kofi.svg)](https://ko-fi.com/soloplax/commissions)
+
 ![GerbCraft editor showing layered PCB artwork](docs/images/gerbcraft-editor.png)
 
 ## Why GerbCraft exists
@@ -123,4 +125,4 @@ Private sample boards and acceptance evidence are excluded from this repository.
 
 You can support development by reporting reproducible bugs, suggesting improvements and sharing the project with other engineers and makers. Please include a small, shareable sample file when reporting a format issue, and remove any confidential board data.
 
-A donation link will be added once SoloPlax's preferred payment page is connected.
+If GerbCraft helps you, you can [support SoloPlax on Ko-fi](https://ko-fi.com/soloplax/commissions) to help fund continued development. Contributions are optional; GerbCraft's current perpetual access does not require a donation.
