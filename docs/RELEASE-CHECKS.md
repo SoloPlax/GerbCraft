@@ -1,5 +1,31 @@
 # GerbCraft release checks
 
+## Public Windows pre-release — 23 October 2026
+
+[v0.2.1](https://github.com/SoloPlax/GerbCraft/releases/tag/v0.2.1) is published
+with the GPL-licensed Windows x64 installer, portable ZIP, matching source ZIP and
+`SHA256SUMS.txt`. Source/build commit: `dc4116ab2a6573edd685949662a0717abaabdc5c`.
+
+A clean archive of the public repository installed its locked dependencies and
+passed 42 core tests and seven desktop tests on macOS. One core and three desktop
+private-board tests skipped as intended. The installer payload passed its archive
+integrity test; its executable, application archive and GPL text match the portable
+build. Package metadata, dependency notices, perpetual mode and exclusion of
+private samples, licence files and signing keys were checked.
+
+The source ZIP matches every tracked file at the release commit and includes nine
+upstream source archives, build instructions and a source/checksum manifest.
+GitHub's uploaded SHA-256 digests match all four local release files. Local evidence
+is in `test/evidence/public-release-0.2.1`; final packages are in `dist/release` and
+`dist/editor`. The prior local binaries are preserved under
+`dist/editor/pre-gpl-0.2.1`.
+
+The Windows VM displayed a black screen during this check, so this rebuilt
+installer has not been live-retested there. The earlier Windows 11 ARM / x64
+emulation results below apply to the prior 0.2.1 build. Native Windows x64,
+independent CAM validation and code signing remain outstanding. The release notes
+state these limits; this is an early pre-release.
+
 ## GPLv3 source release — 23 October 2026
 
 GerbCraft's original source now uses `GPL-3.0-only`. The repository includes the
@@ -16,7 +42,9 @@ text beside the executable and `GPL-3.0-only` package metadata. The editor's
 packaged vendor notices match the updated source. These checks do not rebuild the
 existing release installer/ZIP assets or replace Windows runtime acceptance.
 
-The local 0.2.1 installer/ZIP files predate this update. Before publishing binaries:
+At this checkpoint, the local 0.2.1 installer/ZIP files predated the update. The
+public pre-release above completes these packaging steps, which also apply to
+future releases:
 
 - Rebuild from the intended GPL-licensed release commit and inspect its notices.
 - Provide the complete corresponding source for that exact build alongside the

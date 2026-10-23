@@ -181,5 +181,20 @@ Licence administration is no longer a release prerequisite for this build.
 - [x] Explain redistribution, source availability and optional donations in README.
 - [x] Preserve dependency licences and complete the bundled attribution notices.
 - [x] Include the GPL text in future editor and activation-app packages.
-- [ ] Rebuild public binary release assets and supply their complete corresponding
+- [x] Rebuild public binary release assets and supply their complete corresponding
   source and build instructions from the exact release commit.
+
+## First public Windows download — 23 October 2026
+
+- [x] Clean public checkout: dependency installation succeeds; 42 core and seven
+  desktop tests pass. Four private-board checks skip as intended.
+- [x] Rebuild GPL-licensed Windows x64 installer and portable ZIP from `dc4116a`.
+- [x] Verify installer integrity and matching application files, GPL/dependency
+  notices, perpetual configuration and exclusion of private files.
+- [x] Archive matching source, build instructions and nine upstream source archives.
+- [x] Publish [v0.2.1](https://github.com/SoloPlax/GerbCraft/releases/tag/v0.2.1)
+  as an early pre-release with all three packages and SHA-256 checksums.
+- [x] Verify uploaded file digests and add direct download links to README.
+- [ ] Repeat live Windows testing of this rebuilt installer; the research VM
+  display was black during this release check. Earlier 0.2.1 Windows results remain
+  separate. Native Windows x64, independent CAM validation and signing remain open.
