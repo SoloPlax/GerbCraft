@@ -41,11 +41,15 @@ These are actual application screenshots captured from a development run using s
 
 | Platform    | Status                                                                                            |
 | ----------- | ------------------------------------------------------------------------------------------------- |
-| Windows x64 | Version 0.2.1 installer and portable ZIP built; public release assets have not yet been uploaded. |
+| Windows x64 | [Version 0.2.1 installer and portable ZIP](https://github.com/SoloPlax/GerbCraft/releases/tag/v0.2.1). |
 | macOS       | A packaged release is next in development.                                                        |
 | Linux       | A packaged release is planned alongside macOS.                                                    |
 
-Check [GitHub Releases](https://github.com/SoloPlax/GerbCraft/releases) for published downloads. For now, build from source using the instructions below. Build outputs are kept outside Git: the Windows installer is `dist/editor/GerbCraft-0.2.1-Windows-x64.exe`, with the portable ZIP beside it. Extract the entire portable ZIP before launching.
+**[Download the Windows installer](https://github.com/SoloPlax/GerbCraft/releases/download/v0.2.1/GerbCraft-0.2.1-Windows-x64.exe)** and run it on your Windows computer. Node.js, Git and an activation key are not required.
+
+Prefer a portable copy? Download the [Windows ZIP](https://github.com/SoloPlax/GerbCraft/releases/download/v0.2.1/GerbCraft-0.2.1-Windows-x64.zip), extract the entire archive, then run `GerbCraft.exe` from the extracted folder. Keep its accompanying files together.
+
+The [release page](https://github.com/SoloPlax/GerbCraft/releases/tag/v0.2.1) also includes matching source and SHA-256 checksums. This is an early release; see its notes for validation and limitations.
 
 The Windows acceptance environment is Windows 11 ARM in VMware Fusion using Windows x64 emulation. Native Windows x64 validation remains outstanding. The installers are unsigned, and Windows uses software rendering for VM compatibility.
 
@@ -61,7 +65,7 @@ You may use, study, modify and redistribute GerbCraft, including commercially. W
 
 GerbCraft is provided without warranty, to the extent permitted by law. Third-party components retain their own licences and notices. The GPL terms apply separately from the disabled activation system; donations are optional and do not affect your rights under the licence.
 
-For binary releases, publish the complete corresponding source and build instructions for that exact version alongside the downloads. The existing local 0.2.1 executables predate this licensing update and must be rebuilt before being offered as GPLv3 release assets.
+The release includes [matching source](https://github.com/SoloPlax/GerbCraft/releases/download/v0.2.1/GerbCraft-0.2.1-Source.zip) and [build instructions](docs/BUILDING.md). Future binary releases must continue to provide their complete corresponding source and required notices.
 
 ## Getting started
 
@@ -91,12 +95,14 @@ Version 0.2.1 is an early editor release with a defined format scope. Review exp
 
 ## Development
 
-Install Node.js and npm, then run:
+Install Node.js 22.12 or newer and npm, then run these commands in the extracted source folder or cloned repository:
 
 ```sh
 npm ci
 npm start
 ```
+
+See [Building from source](docs/BUILDING.md) for prerequisites, dependency sources and packaging details.
 
 Validation and Windows packaging:
 
