@@ -6,7 +6,7 @@ Created by [SoloPlax](https://github.com/SoloPlax), GerbCraft is a desktop Gerbe
 
 **Current version: 0.2.1 · Windows first · Perpetual access · No activation required**
 
-[![Support me on Ko-fi](https://img.shields.io/badge/Ko--fi-Support%20my%20work-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/soloplax)
+[![Buy a Coffee for SoloPlax](https://img.shields.io/badge/Buy%20a%20Coffee%20for%20SoloPlax-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/soloplax)
 
 ![GerbCraft editor showing layered PCB artwork](docs/images/gerbcraft-editor.png)
 
